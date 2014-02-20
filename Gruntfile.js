@@ -40,7 +40,20 @@ module.exports = function(grunt) {
     watch: {
       files: ['<%= jshint.files %>'],
       tasks: ['jshint', 'qunit']
-    }
+    },
+    jasmine: {
+          example: {
+            src: 'src/*js',
+            options: {
+              specs: 'spec/*spec.js',
+              helpers: 'spec/helpers/*.js'/*,
+              vendor: [
+                'vendor/jquery-1.4.2.min.js', 
+                'vendor/jasmine-jquery.js'
+              ]*/
+            }       
+          }
+        }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -48,8 +61,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
 
-  grunt.registerTask('test', ['jshint', 'qunit']);
+  grunt.registerTask('test', ['jshint', 'qunit', 'jasmine']);
 
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
 
