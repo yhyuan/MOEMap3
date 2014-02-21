@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         separator: ';'
       },
       js: {
-        src: ['lib/concat/arcgislink-noGmap-min.js', 'lib/concat/underscore-min.js', 'src/**/*.js'],
+        src: ['vendor/arcgislink-noGmap-min.js', 'vendor/underscore-min.js', 'vendor/jquery-1.11.0.min.js', 'src/**/*.js'],
         dest: 'dist/<%= pkg.name %>.js',
         nonull: true
       }
